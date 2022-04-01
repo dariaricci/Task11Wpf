@@ -1,0 +1,31 @@
+﻿<Window x:Class="Task11Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task11Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <GeometryGroup x:Key="rounds">
+            <EllipseGeometry RadiusX="100" RadiusY="100" Center="400,200"/>
+            <EllipseGeometry RadiusX="80" RadiusY="80" Center="400,200"/>
+        </GeometryGroup>
+        <RectangleGeometry Rect="390,120,20,160" x:Key="rectangle">
+            <RectangleGeometry.Transform>
+                <RotateTransform Angle="45" CenterX="400" CenterY="200"></RotateTransform>
+            </RectangleGeometry.Transform>
+        </RectangleGeometry>
+
+    </Window.Resources>
+    <Grid>
+        <Path Fill="Red" Stroke="Black">
+            <Path.Data>
+                <CombinedGeometry GeometryCombineMode="Union"
+                                  Geometry1="{StaticResource rounds}"
+                                  Geometry2="{StaticResource rectangle}"/>
+            </Path.Data>
+        </Path>
+        
+    </Grid>
+</Window>
